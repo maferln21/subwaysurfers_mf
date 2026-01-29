@@ -20,7 +20,7 @@ public class Swipe : MonoBehaviour
     {
         if (!isActive) return;
         
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
         {
             startPosition = Input.mousePosition;
         }
