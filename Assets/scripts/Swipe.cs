@@ -19,17 +19,17 @@ public class Swipe : MonoBehaviour
     private void Update()
     {
         if (!isActive) return;
-        
+       
         if (Input.GetMouseButtonDown(0))
         {
             startPosition = Input.mousePosition;
         }
-
+ 
         if (Input.GetMouseButtonUp(0))
         {
             Vector2 endPosition = Input.mousePosition;
             Vector2 swipeVector = endPosition - startPosition;
-
+ 
             if (swipeVector.magnitude >= minSwipeDistance)
             {
                 DetecSwipeDorection(swipeVector);
@@ -39,7 +39,7 @@ public class Swipe : MonoBehaviour
     private void DetecSwipeDorection(Vector2 swipeVector)
     {
         float angle = Vector2.SignedAngle(Vector2.right, swipeVector);
-
+ 
         if (angle >= -45f && angle <= 45f)
         {
             onSwipeRight?.Invoke();
@@ -56,6 +56,6 @@ public class Swipe : MonoBehaviour
         {
             onSwipeDown?.Invoke();
         }
-
+ 
     }
 }

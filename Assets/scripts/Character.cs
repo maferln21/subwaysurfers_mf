@@ -9,19 +9,26 @@ public class Character : MonoBehaviour
    private CharacterData characterData;
    [SerializeField]
    private Animator characterAnimator;
-   [SerializeField] 
-   private float jumpForce = 5f;
-   [SerializeField] 
+   [SerializeField]
+   private float jumpForce = 10f;
+   [SerializeField]
    private float distanceToMove = 2f;
    [SerializeField]
-   private float moveDuration = 0.2f; 
+   private float moveDuration = 0.2f;
    private bool isGrounded = true;
    private bool isMoving = false;
-   private bool isRolling = false; 
+   private bool isRolling = false;
+   private bool isActive = false;
    private void Start()
     {
+        isActive = true;
         characterAnimator.Play(characterData.runAnimationName, 0, 0f);
         characterRigidbody = GetComponent<Rigidbody>();
+    }
+    public void Lose()
+    {
+        StopAllCoroutines();
+        characterAnimator.Play(characterData.loseAnimationName, 0, 0f);
     }
     public void Jump()
     {
@@ -31,12 +38,14 @@ public class Character : MonoBehaviour
             characterRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+       
     }
     public void MoveDown()
     {
-        if(!isGrounded)
+        if (!isGrounded)
         {
-            characterRigidbody.AddForce(Vector3.down * jumpForce * 2, ForceMode.Impulse);
+            characterRigidbody.AddForce(Vector3.down*jumpForce*2,ForceMode.Impulse);
+            isGrounded = false;
         }
         characterAnimator.Play(characterData.rollAnimationName, 0, 0f);
         isRolling = true;
@@ -44,23 +53,22 @@ public class Character : MonoBehaviour
     }
     public void MoveLeft()
     {
-        if (transform.position.x <= -distanceToMove) return;
+       Move(Vector3.left);
     }
     public void MoveRight()
     {
-        if (transform.position.x <= distanceToMove) return;
         Move(Vector3.right);
     }
     private void Move(Vector3 direction)
     {
-        if (isMoving) return;
+        if(isMoving || !isActive) return;
         characterAnimator.Play(characterData.moveAnimationName, 0, 0f);
         isMoving = true;
-        Vector3 targetPosition = transform.position + direction  * distanceToMove;
-
-        transform.DOMove(targetPosition, moveDuration).SetEase(Ease.OutQuad).OnComplete(() =>
+        Vector3 targetPosition = transform.position + direction * distanceToMove;
+ 
+        transform.DOMove(targetPosition,moveDuration).SetEase(Ease.OutQuad).OnComplete(() =>
         {
-            isMoving = false;
+            isMoving =false;
         });
     }
     private IEnumerator ResetRoll()
@@ -70,11 +78,11 @@ public class Character : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (isActive && collision.gameObject.CompareTag("Ground"))
         {
             if (!isRolling)
             {
-              characterAnimator.Play(characterData.runAnimationName, 0, 0f);  
+                characterAnimator.Play(characterData.runAnimationName, 0, 0f);
             }
             isGrounded = true;
         }
