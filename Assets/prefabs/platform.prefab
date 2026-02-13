@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4179490122951736770}
   - component: {fileID: 6726060391733999413}
   m_Layer: 0
-  m_Name: platform
+  m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,7 +763,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1733934997739344049, guid: 259f49cbcfd39ed4eb70f61fd89b598e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
