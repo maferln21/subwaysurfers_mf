@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   characterData: {fileID: 11400000, guid: 9022908b1b7c5c64fa901808e25b8dda, type: 2}
   characterAnimator: {fileID: 125579977}
-  jumpForce: 4
+  jumpForce: 5
   distanceToMove: 1
   moveDuration: 0.2
   characterStartPivot: {fileID: 806136789}
