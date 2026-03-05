@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &45328390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45328392}
+  - component: {fileID: 45328391}
+  m_Layer: 0
+  m_Name: MagnetPowerUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &45328391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45328390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda78092c0095c74da5408da095a9cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetPowerUp
+  magnet: {fileID: 512381382}
+  duration: 5
+  magnetCollider: {fileID: 125579978}
+--- !u!4 &45328392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45328390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24423, y: 0, z: -0.09145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90239549
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,10 +337,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 608321761475470972, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5693287555993205831}
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512381381}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 125579977}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 125579978}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 125579979}
   m_SourcePrefab: {fileID: 100100000, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
 --- !u!4 &125579975 stripped
 Transform:
@@ -327,6 +383,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &125579978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125579976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 4.333357, y: 1.9853847, z: 1}
+  m_Center: {x: -0.023775952, y: 0.94779927, z: 0}
+--- !u!114 &125579979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125579976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d569ba304736744bcf63ff10125413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetCollider
+  character: {fileID: 999836199}
 --- !u!1 &192117884
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +465,8 @@ MonoBehaviour:
   maxPlatformsNmber: 7
   powerUpPools:
   - {fileID: 840472354}
-  powerUpOffset: 3
+  - {fileID: 1710128345}
+  powerUpOffset: 1
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +756,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsUI
   text: {fileID: 1183349701}
+--- !u!1001 &512381380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1939664582}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.163
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.069
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.79664695
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.59988046
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.012628182
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07305931
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -72.543
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 21.054
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -26.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_Name
+      value: Magnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+--- !u!4 &512381381 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+  m_PrefabInstance: {fileID: 512381380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &512381382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 56037d9f3fc09e6448f09cdd5a516e0c, type: 3}
+  m_PrefabInstance: {fileID: 512381380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &614480407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1209,7 @@ GameObject:
   - component: {fileID: 961739752}
   - component: {fileID: 961739751}
   - component: {fileID: 961739750}
+  - component: {fileID: 961739754}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1149,13 +1328,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1882589, y: -0, z: -0, w: 0.98211944}
-  m_LocalPosition: {x: 0, y: 3.29, z: -5.45}
+  m_LocalRotation: {x: 0.037878036, y: -0, z: -0, w: 0.99928236}
+  m_LocalPosition: {x: 0, y: 1.46, z: -3.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 21.702, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.342, y: 0, z: 0}
+--- !u!114 &961739754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961739749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3508f36d7c6ebd5408f04563375ad9a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  target: {fileID: 999836199}
+  smoothSpeed: 0.125
 --- !u!1 &964383644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1561,21 @@ MonoBehaviour:
   obstacleTag: Obstacle
   coinTag: Coin
   jumpPowerUpTag: JumpPowerUp
+  onMagnetCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 805611871}
+        m_TargetAssemblyTypeName: InstantiatePoolObjects, Assembly-CSharp
+        m_MethodName: InstantiateObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onObstacleCollision:
     m_PersistentCalls:
       m_Calls:
@@ -2652,6 +2860,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694977729}
   m_CullTransparentMesh: 1
+--- !u!1 &1710128344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710128346}
+  - component: {fileID: 1710128345}
+  m_Layer: 0
+  m_Name: InstantiateMagnet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1710128345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710128344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22b84b7bb9338c468df4d53cc830fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 3263447008668369129, guid: b631a95b39f4ae84fbb66d33a5fac2d0, type: 3}
+--- !u!4 &1710128346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710128344}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24423, y: 0, z: -0.09145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732894061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,6 +3261,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1939664582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
+  m_PrefabInstance: {fileID: 125579974}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946099477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,3 +3581,5 @@ SceneRoots:
   - {fileID: 776193400}
   - {fileID: 192117885}
   - {fileID: 840472355}
+  - {fileID: 1710128346}
+  - {fileID: 45328392}
