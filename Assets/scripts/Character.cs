@@ -33,6 +33,10 @@ public class Character : MonoBehaviour
    private Collider normalCollider;
    [SerializeField]
    private Collider rollcollider;
+    [SerializeField]
+    private float RightLimit;
+     [SerializeField]
+     private float LeftLimit;
    private bool isGrounded = true;
    private bool isMoving = false;
    private bool isRolling = false;
@@ -84,10 +88,12 @@ public class Character : MonoBehaviour
     }
     public void MoveLeft()
     {
+        if (transform.position.x <= LeftLimit) return;
        Move(Vector3.left);
     }
     public void MoveRight()
     {
+        if (transform.position.x >= RightLimit) return;
         Move(Vector3.right);
     }
     private void Move(Vector3 direction)
@@ -105,6 +111,7 @@ public class Character : MonoBehaviour
     }
     private IEnumerator ResetRoll()
     {
+        yield return null;
         yield return new WaitForSeconds(characterAnimator.GetCurrentAnimatorStateInfo(0).length);
         isRolling = false;   
         normalCollider.enabled = true;

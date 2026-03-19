@@ -1444,6 +1444,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 999836199}
   smoothSpeed: 0.125
+  minX: -2
+  maxX: 2
+  verticalThreshold: 1
+  verticalSmoothSpeed: 5
 --- !u!1 &964383644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1595,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 9022908b1b7c5c64fa901808e25b8dda, type: 2}
   characterAnimator: {fileID: 125579977}
   jumpForce: 5
-  distanceToMove: 0.7
+  distanceToMove: 1.25
   moveDuration: 0.2
   characterStartPivot: {fileID: 806136789}
   onJump:
@@ -1641,6 +1645,8 @@ MonoBehaviour:
         m_CallState: 2
   normalCollider: {fileID: 999836201}
   rollcollider: {fileID: 999836204}
+  RightLimit: 2
+  LeftLimit: -2.5
 --- !u!114 &999836203
 MonoBehaviour:
   m_ObjectHideFlags: 0
