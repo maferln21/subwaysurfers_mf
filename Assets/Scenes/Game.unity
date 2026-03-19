@@ -1595,7 +1595,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 9022908b1b7c5c64fa901808e25b8dda, type: 2}
   characterAnimator: {fileID: 125579977}
   jumpForce: 5
-  distanceToMove: 1.25
+  distanceToMove: 1.1
   moveDuration: 0.2
   characterStartPivot: {fileID: 806136789}
   onJump:
@@ -1645,8 +1645,8 @@ MonoBehaviour:
         m_CallState: 2
   normalCollider: {fileID: 999836201}
   rollcollider: {fileID: 999836204}
-  RightLimit: 2
-  LeftLimit: -2.5
+  RightLimit: 2.35
+  LeftLimit: -2.19
 --- !u!114 &999836203
 MonoBehaviour:
   m_ObjectHideFlags: 0
