@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed68a38e6caf314aa32d188b47387c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinFollow
-  followSpeed: 5
-  minimumDistance: 0.05
+  followSpeed: 25
+  minimumDistance: 0.2
 --- !u!1001 &2259884175261293649
 PrefabInstance:
   m_ObjectHideFlags: 0

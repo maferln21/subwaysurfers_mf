@@ -41,6 +41,17 @@ public class Character : MonoBehaviour
    private bool isMoving = false;
    private bool isRolling = false;
    private bool isActive = false;
+   private bool isFlying = false;
+   public bool  IsFlying
+    {
+        get {return isFlying; }
+        set { isFlying = value; }
+    }
+    public CharacterData CharacterData => characterData;
+    public Rigidbody CharacterRigidbody => characterRigidbody;
+    public Animator CharacterAnimator => characterAnimator;
+    public bool IsActive => isActive;
+
    private void Awake()
     {
         characterRigidbody = GetComponent<Rigidbody>();

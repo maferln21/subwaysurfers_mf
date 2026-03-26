@@ -17,7 +17,7 @@ public class CoinFollow : MonoBehaviour
     {
         canFollow = true;
         player = null;
-        if (originalPosition != Vector3.zero) transform .localPosition = originalPosition;
+        if (originalPosition != Vector3.zero) transform.localPosition = originalPosition;
      }
     public void StartFollwing(Transform playerTransform)
     {
@@ -33,7 +33,8 @@ public class CoinFollow : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetPosition) < minimumDistance)
             {
-            player = null;
+                player.GetComponent<PlayerCollide>()?.collectCoin(gameObject);
+                player = null;
         
             }
         }
