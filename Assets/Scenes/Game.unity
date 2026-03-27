@@ -558,6 +558,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &229938065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aeeedaffdf88a0043b2fcda30238f771, type: 3}
+  m_PrefabInstance: {fileID: 581702584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &373315347
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +702,9 @@ MonoBehaviour:
   securePlatformPrefabs:
   - {fileID: 1574778766}
   - {fileID: 1313850110}
+  flyingPlatformPrefabs:
+  - {fileID: 1263242238}
+  flyingPlatformsHeight: 4.5
   initialPlatforms: 8
   minSpeed: 5
   maxSpeed: 12
@@ -979,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aeeedaffdf88a0043b2fcda30238f771, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1245,7 +1253,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8764373218812076563, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7684677543225702287, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
@@ -2012,6 +2021,22 @@ MonoBehaviour:
   obstacleTag: Obstacle
   coinTag: Coin
   jumpPowerUpTag: JumpPowerUp
+  jetpackTag: Jetpack
+  onJetpackCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1644516735}
+        m_TargetAssemblyTypeName: JetpackPowerUp, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMagnetCollected:
     m_PersistentCalls:
       m_Calls:
@@ -2705,6 +2730,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 608321761475470972, guid: aef5e105ea8ac8a48b2fb549f5cc7603, type: 3}
   m_PrefabInstance: {fileID: 125579974}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1263242236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263242237}
+  - component: {fileID: 1263242238}
+  m_Layer: 0
+  m_Name: InstantiateFlyingPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263242237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263242236}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.79929, y: -0.80886, z: 2.1779099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1718905092}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263242238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263242236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22b84b7bb9338c468df4d53cc830fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 3364203440458832207, guid: e5051b35623594744ae96e2e015b7bd2, type: 3}
 --- !u!1 &1296294210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,6 +3349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1644516734}
+  - component: {fileID: 1644516735}
   m_Layer: 0
   m_Name: JetpackPoweUp
   m_TagString: Untagged
@@ -3301,6 +3372,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1005255232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644516735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644516733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6c7f1b78440004bacb8031b8ef1141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JetpackPoweUp
+  flyingHeight: 4.5
+  character: {fileID: 999836202}
+  jetPackAsset: {fileID: 229938065}
+  flyDuration: 5
+  onJetpackActived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 409412148}
+        m_TargetAssemblyTypeName: PlatformsManager, Assembly-CSharp
+        m_MethodName: InstantiateFlyingPlatform
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 999836199}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1663543170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,6 +3708,7 @@ Transform:
   - {fileID: 1844890987}
   - {fileID: 717952632}
   - {fileID: 1544778257}
+  - {fileID: 1263242237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732894061
@@ -3979,6 +4082,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 45328391}
         m_TargetAssemblyTypeName: MagnetPowerUp, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: FONDO
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1644516735}
+        m_TargetAssemblyTypeName: JetpackPoweUp, Assembly-CSharp
         m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:

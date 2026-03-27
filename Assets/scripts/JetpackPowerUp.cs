@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine.Events;
 using System.Collections;
 
-public class JetpackPoweUp : MonoBehaviour
+public class JetpackPowerUp : MonoBehaviour
 {
     [SerializeField]
     private float flyingHeight = 4.5f;
@@ -45,6 +45,7 @@ public class JetpackPoweUp : MonoBehaviour
         }
         character.IsFlying = false;
         jetPackAsset.SetActive(false);
+        character.CharacterRigidbody.isKinematic = false;
         character.CharacterAnimator.Play(character.CharacterData.jumpAnimationName);
     }
 }
