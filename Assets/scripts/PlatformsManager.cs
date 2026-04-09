@@ -52,11 +52,12 @@ public class PlatformsManager : MonoBehaviour
     {
         InstantiatePoolObjects instantiatePool = flyingPlatformPrefabs[Random.Range(0, flyingPlatformPrefabs.Length)];
         Vector3 spawPosition = character.position - transform.position + Vector3.forward * 2f;
+        spawPosition.x = 0f;
         instantiatePool.InstantiateObject(spawPosition);
         GameObject createdPlatform = instantiatePool.GetCurrentObject();
         Platform newPlatform = createdPlatform.GetComponent<Platform>();
         newPlatform.transform.SetParent(transform);
-        newPlatform.transform.localPosition = spawPosition + newPlatform.ColliderSize * Vector3.up * flyingPlatformsHeight;
+        newPlatform.transform.localPosition = spawPosition + newPlatform.ColliderSize * Vector3.forward + Vector3.up * flyingPlatformsHeight;
     }
     public void InitiatePlatform(int number)
     {
