@@ -3,9 +3,9 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField]
-    private string pauseMenuOpenAnimation = "Show";
+    private string pauseMenuOpenAnimation = "PauseScreen";
     [SerializeField]
-    private string pauseMenuCloseAnimation = "Hide";
+    private string pauseMenuCloseAnimation = "hide";
     [SerializeField]
     private Animator pauseMenuAnimator;
     private bool isPaused = false;
@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
     }
     public void ResumeGame()
     {
-         if (isPaused) return;
+         if (!isPaused) return;
         Time.timeScale = 1f;
         isPaused = false;
         pauseMenuAnimator.Play(pauseMenuCloseAnimation, 0, 0f);
