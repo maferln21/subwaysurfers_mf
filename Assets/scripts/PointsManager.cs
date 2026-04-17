@@ -12,8 +12,8 @@ public class PointsManager : MonoBehaviour
     private UnityEvent<int> onPointsChanged;
     private Coroutine pointsCoroutine;
     [SerializeField]
-    private Text[] pointsTexts;
-    public void StartCouting()
+    private Text [] pointsTexts;
+    public void StartCounting()
     {
         points = 0;
         onPointsChanged?.Invoke(points);
@@ -29,7 +29,7 @@ public class PointsManager : MonoBehaviour
     }
     private IEnumerator CountPoints()
     {
-        while (true)
+        while(true)
         {
             yield return new WaitForSeconds(pointsInterval);
             points++;
@@ -38,10 +38,10 @@ public class PointsManager : MonoBehaviour
     }
     public void CalculateHighScore()
     {
-        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        int highScore = PlayerPrefs.GetInt("HighScore",0);
         if (points > highScore)
         {
-            PlayerPrefs.SetInt("HigScore", points);
+            PlayerPrefs.SetInt("HighScore",points);
             PlayerPrefs.Save();
         }
         else
@@ -54,9 +54,8 @@ public class PointsManager : MonoBehaviour
     {
         foreach (var text in pointsTexts)
         {
+           
             text.text = points.ToString();
         }
     }
-
-    
 }
