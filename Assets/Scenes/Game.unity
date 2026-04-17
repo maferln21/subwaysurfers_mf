@@ -5725,7 +5725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd0dc4a35d5e6c488a895d09b74baae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsManager
-  pointsInterval: 0.5
+  pointsInterval: 0.1
   onPointsChanged:
     m_PersistentCalls:
       m_Calls:
